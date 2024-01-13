@@ -22,7 +22,7 @@ uint16_t map(uint16_t x, uint16_t in_min, uint16_t in_max, uint16_t out_min, uin
 ADC_HandleTypeDef hadc1;
 GPIO_InitTypeDef relay;
 GPIO_InitTypeDef sensor1;
-uint32_t adc_value;
+uint32_t adc_value = 0;
 uint8_t soilmoisturepercent = 0;
 
 
