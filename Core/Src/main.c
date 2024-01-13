@@ -18,6 +18,7 @@ uint16_t map(uint16_t x, uint16_t in_min, uint16_t in_max, uint16_t out_min, uin
 #define SENSOR_WATERVALUE 		1200		//replace the value from calibration in water
 
 
+
 ADC_HandleTypeDef hadc1;
 GPIO_InitTypeDef relay;
 GPIO_InitTypeDef sensor1;
@@ -42,7 +43,7 @@ int main(void)
   {
 
 	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, 200);
+	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
 	adc_value = HAL_ADC_GetValue(&hadc1);
 	soilmoisturepercent = (uint8_t)(map(adc_value, SENSOR_AIRVALUE, SENSOR_WATERVALUE, 0, 100));
 	HAL_ADC_Stop(&hadc1);
